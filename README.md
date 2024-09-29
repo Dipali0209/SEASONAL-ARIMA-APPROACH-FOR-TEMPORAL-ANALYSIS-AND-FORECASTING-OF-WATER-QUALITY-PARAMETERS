@@ -40,40 +40,20 @@ We evaluated the models using:
 The lower the values of these metrics, the better the model's performance.
 
 ## Results and Discussion
-The SARIMA models produced varying levels of accuracy for each water quality parameter. Below is a summary of the model performance for key indicators:
+The SARIMA models produced varying levels of accuracy for each water quality parameter. Below is a summary of the best model performance for each parameter:
 
-1. **Turbidity**:
-   - **Model Order**: (1, 1, 1), Seasonal Order: (2, 1, 1, 12)
-   - **MSE**: 0.00045, **RMSE**: 0.0212, **MAE**: 0.0168
-   - **AIC**: -225.56
+| **Parameter**  | **Order** | **Seasonal Order** | **MSE**   | **RMSE**   | **MAE**    | **AIC**        | **BIC**         |
+|----------------|-----------|--------------------|-----------|------------|------------|----------------|-----------------|
+| **Turbidity**  | (1, 1, 1) | (2, 1, 1, 12)      | 0.00045   | 0.021218   | 0.01676    | -225.559486    | -214.4586       |
+| **Chlorophyll-a** | (2, 1, 2) | (1, 1, 1, 12)      | 0.000345  | 0.018575   | 0.014663   | -238.368237    | -225.417203     |
+| **SSC**        | (2, 1, 2) | (2, 1, 2, 12)      | 0.007427  | 0.086178   | 0.064635   | -91.344099     | -74.692771      |
+| **DOM**        | (1, 1, 1) | (2, 1, 1, 12)      | 0.006117  | 0.078212   | 0.025275   | -235.73287     | -224.631984     |
+| **NDWI**       | (2, 1, 2) | (1, 1, 1, 12)      | 0.001918  | 0.043794   | 0.033936   | -153.056565    | -140.105532     |
+| **NDVI**       | (2, 1, 2) | (1, 1, 1, 12)      | 0.003382  | 0.058151   | 0.045835   | -125.781392    | -112.830359     |
 
-2. **Chlorophyll-a**:
-   - **Model Order**: (2, 1, 2), Seasonal Order: (1, 1, 1, 12)
-   - **MSE**: 0.00035, **RMSE**: 0.0186, **MAE**: 0.0147
-   - **AIC**: -238.37
+**Table 1.** Best SARIMA model performance for each water quality parameter.
 
-3. **SSC**:
-   - **Model Order**: (2, 1, 2), Seasonal Order: (2, 1, 2, 12)
-   - **MSE**: 0.00743, **RMSE**: 0.0862, **MAE**: 0.0646
-   - **AIC**: -91.34
-
-4. **DOM**:
-   - **Model Order**: (1, 1, 1), Seasonal Order: (2, 1, 1, 12)
-   - **MSE**: 0.00612, **RMSE**: 0.0782, **MAE**: 0.0253
-   - **AIC**: -235.73
-   - *Note*: DOM model displayed inconsistent long-term predictions, suggesting possible overfitting.
-
-5. **NDWI**:
-   - **Model Order**: (2, 1, 2), Seasonal Order: (1, 1, 1, 12)
-   - **MSE**: 0.00192, **RMSE**: 0.0438, **MAE**: 0.0339
-   - **AIC**: -153.06
-
-6. **NDVI**:
-   - **Model Order**: (2, 1, 2), Seasonal Order: (1, 1, 1, 12)
-   - **MSE**: 0.00338, **RMSE**: 0.0582, **MAE**: 0.0458
-   - **AIC**: -125.78
-
-While most SARIMA models demonstrated strong predictive capabilities, further refinement is needed for models like DOM to ensure reliable forecasts. The turbidity and chlorophyll-a models performed exceptionally well, highlighting their robustness in water quality forecasting.
+While most SARIMA models demonstrated strong predictive capabilities, further refinement is needed for models like **DOM** to ensure reliable forecasts. The **Turbidity** and **Chlorophyll-a** models performed exceptionally well, highlighting their robustness in water quality forecasting.
 
 ## Future Work
 - Refine models, particularly for DOM, to enhance prediction accuracy.
